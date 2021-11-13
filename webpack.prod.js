@@ -46,7 +46,7 @@ const setMPA = () => {
     htmlWebpackPlugins
   }
 }
-const {entry, htmlWebpackPlugins} = setMPA()
+const { entry, htmlWebpackPlugins } = setMPA()
 
 module.exports = {
   mode: 'production',
