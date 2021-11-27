@@ -4,11 +4,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './search.less'
 import logo from './images/logo.jpg'
+import '../../common'
 
 class Search extends React.Component {
 
   render() {
-    console.log(1111)
+    console.log(common())
     return <div className="search-text">
       Search Text 12222 <img src={ logo } />
       
