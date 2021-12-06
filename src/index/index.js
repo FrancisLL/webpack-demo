@@ -1,5 +1,5 @@
 // import './search';
-import '../../common'
+import { common } from '../../common'
 
 function component() {
   const element = document.createElement('div');

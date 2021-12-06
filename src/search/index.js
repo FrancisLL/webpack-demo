@@ -17,7 +17,7 @@ class Search extends React.Component {
   }
 
   loadComponent() {
-    console.log('loadComponent')
+    // console.log('loadComponent')
     // 返回 promise
     import('./text.js').then(Text => {
       this.setState({
@@ -27,7 +27,7 @@ class Search extends React.Component {
   }
 
   render() {
-    console.log(common())
+    // console.log(common())
     const { Text } = this.state;
     return <div className="search-text">
       {

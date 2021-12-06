@@ -1,3 +1,4 @@
 import React from 'react';
 
-export default () => <div>动态 import</div>;
+export const importFunc = () => <div>动态 import</div>;
+
