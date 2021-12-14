@@ -13,34 +13,35 @@ const autoprefixer = require('autoprefixer');
 const setMPA = () => {
   const entry = {}
   const htmlWebpackPlugins = []
-  const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'))
+  const entryFiles = glob.sync(path.join(__dirname, './src/*/index-server.js'))
 
   console.log(entryFiles)
   Object.keys(entryFiles)
     .map((index) => {
       const entryFile = entryFiles[index]
 
-      const match = entryFile.match(/src\/(.*)\/index\.js/)
+      const match = entryFile.match(/src\/(.*)\/index-server\.js/)
       const pageName = match && match[1]
-      entry[pageName] = entryFile
-
-      htmlWebpackPlugins.push(
-        new HtmlWebpackPlugin({
-          template: path.join(__dirname, `src/${pageName}/index.html`),
-          filename: `${pageName}.html`,
-          chunks: ['commons', pageName],
-          inject: true,
-          minify: {
-            html5: true,
-            collapseWhitespace: true,
-            preserveLineBreaks: false,
-            minifyCSS: true,
-            minify: true,
-            removeComments: false
-          }
-        })
-      )
-      console.log('pageName', pageName)
+      
+      if (pageName) {
+        entry[pageName] = entryFile
+        htmlWebpackPlugins.push(
+          new HtmlWebpackPlugin({
+            template: path.join(__dirname, `src/${pageName}/index.html`),
+            filename: `${pageName}.html`,
+            chunks: ['commons', pageName],
+            inject: true,
+            minify: {
+              html5: true,
+              collapseWhitespace: true,
+              preserveLineBreaks: false,
+              minifyCSS: true,
+              minify: true,
+              removeComments: false
+            }
+          })
+        )
+      }
     })
   return {
     entry,
@@ -54,7 +55,10 @@ module.exports = {
   entry,
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name]_[chunkhash:8].js'
+    filename: '[name]-server.js',
+    libraryTarget: 'umd',
+    globalObject: 'this',
+    publicPath: ''
   },
   module: {
     rules: [
@@ -113,7 +117,8 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name]_[hash:9].[ext]'
+              name: '[name]_[hash:9].[ext]',
+              esModule: false
             }
           }
         ]

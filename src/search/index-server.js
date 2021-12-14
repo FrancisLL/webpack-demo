@@ -1,8 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom'
-import './search.less'
-import logo from './images/logo.jpg'
-import { common } from '../../common'
+// import React from 'react';
+// import ReactDOM from 'react-dom'
+// import './search.less'
+// import logo from './images/logo.jpg'
+// import { common } from '../../common'
+
+const React = require('react')
+const logo = require('./images/logo.jpg')
+require('./search.less')
 
 class Search extends React.Component {
 
@@ -38,7 +42,4 @@ class Search extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Search />,
-  document.getElementById('root')
-)
+module.exports = <Search />
