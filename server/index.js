@@ -12,6 +12,7 @@ const express = require('express')
 const { renderToString } = require('react-dom/server')
 const SSR = require('../dist/search-server')
 const template = fs.readFileSync(path.join(__dirname, '../dist/search.html'), 'utf-8')
+const data = require('./data.json')
 
 
 const server = (port) => {
@@ -31,7 +32,9 @@ const server = (port) => {
 
 const renderMarkup = (str) => {
   console.log('renderMarkup', str)
+  const dataStr = JSON.stringify(data)
   return template.replace('<!--HTML_PALCEHOLDER-->', str)
+    .replace('<!--INITIAL_DATA_PLACEHOLDER-->', `<script>window.__initial_data=${dataStr}</script>`)
 }
 
 server(process.env.PORT || 3000)

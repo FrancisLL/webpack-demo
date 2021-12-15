@@ -1,0 +1,130 @@
+{
+  "servers": [
+    {
+      "text": "国内 -> 北京",
+      "value": "rtc-data-bdcbj.ronghub.com",
+      "child": [
+        "rtc-data-bdcbj.ronghub.com",
+        "172.28.76.134",
+        "172.28.76.196"
+      ]
+    },
+    {
+      "text": "国内 -> 广州",
+      "value": "rtc-data-bdcgz.ronghub.com",
+      "child": [
+        "172.28.80.132",
+        "172.28.80.133",
+        "172.28.80.196"
+      ]
+    },
+    {
+      "text": "国内 -> 上海",
+      "value": "rtc-media-ucsh2.ronghub.com",
+      "child": [
+        "172.28.65.162",
+        "172.28.65.163",
+        "172.28.65.166"
+      ]
+    },
+    {
+      "text": "AWS -> 新加坡",
+      "value": "rtc-data-awssg.ronghub.com",
+      "child": [
+        "172.28.13.160",
+        "172.28.13.185",
+        "172.28.13.227"
+      ]
+    },
+    {
+      "text": "AWS -> 俄勒冈",
+      "value": "rtc-data-awsor.ronghub.com",
+      "child": [
+        "172.28.9.160",
+        "172.28.9.161",
+        "172.28.9.246"
+      ]
+    },
+    {
+      "text": "AWS -> 孟买",
+      "value": "rtc-data-awsmb.ronghub.com",
+      "child": [
+        "172.28.17.182",
+        "172.28.17.188",
+        "172.28.17.197"
+      ]
+    },
+    {
+      "text": "AWS -> 东京",
+      "value": "rtc-data-awsto.ronghub.com",
+      "child": [
+        "172.28.21.142",
+        "172.28.21.149",
+        "172.28.21.224"
+      ]
+    },
+    {
+      "text": "AWS -> 悉尼",
+      "value": "rtc-data-awssy.ronghub.com",
+      "child": [
+        "172.28.37.221",
+        "172.28.37.233",
+        "172.28.37.236"
+      ]
+    },
+    {
+      "text": "AWS -> 法兰克福",
+      "value": "rtc-data-awsfra.ronghub.com",
+      "child": [
+        "172.28.49.158",
+        "172.28.49.190",
+        "172.28.49.202"
+      ]
+    },
+    {
+      "text": "AWS -> 圣保罗",
+      "value": "rtc-data-awsspo.ronghub.com",
+      "child": [
+        "172.28.65.162",
+        "172.28.65.163",
+        "172.28.65.166"
+      ]
+    },
+    {
+      "text": "AWS -> 巴林",
+      "value": "rtc-data-awsbhr.ronghub.com",
+      "child": [
+        "172.28.65.162",
+        "172.28.65.163",
+        "172.28.65.166"
+      ]
+    },
+    {
+      "text": "AWS -> 沙特",
+      "value": "rtc-data-blusa.ronghub.com",
+      "child": [
+        "172.28.65.162",
+        "172.28.65.163",
+        "172.28.65.166"
+      ]
+    },
+    {
+      "text": "AWS -> 开普敦",
+      "value": "rtc-data-awsct.ronghub.com",
+      "child": [
+        "172.28.65.162",
+        "172.28.65.163",
+        "172.28.65.166"
+      ]
+    },
+    {
+      "text": "AWS -> 洛杉矶",
+      "value": "rtc-data-uclag.ronghub.com",
+      "child": [
+        "172.28.65.162",
+        "172.28.65.163",
+        "172.28.65.166"
+      ]
+    }
+  ]
+}
