@@ -85,5 +85,6 @@ module.exports = {
   devServer: {
     static: "./dist",
     hot: true
-  }
+  },
+  stats: 'errors-only'
 }
