@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server --config webpack.dev.js --open",
-    "build:ssr": "webpack --config webpack.ssr.js"
+    "build:ssr": "webpack --config webpack.ssr.js",
+    "build:stats": "npx webpack --profile --json=compilation-stats.json"
   },
   "keywords": [],
   "author": "",
@@ -51,6 +52,7 @@
     "babel-eslint": "^10.1.0",
     "css-minimizer-webpack-plugin": "^3.1.1",
     "lib-flexible": "^0.3.2",
-    "mini-css-extract-plugin": "^2.4.3"
+    "mini-css-extract-plugin": "^2.4.3",
+    "speed-measure-webpack-plugin": "^1.5.0"
   }
 }

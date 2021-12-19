@@ -7,6 +7,9 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
+const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
+
+// const { wrap } = new SpeedMeasureWebpackPlugin()
 
 const autoprefixer = require('autoprefixer');
 
@@ -49,7 +52,7 @@ const setMPA = () => {
 }
 const { entry, htmlWebpackPlugins } = setMPA()
 
-module.exports = {
+const config = {
   mode: 'production',
   entry,
   output: {
@@ -121,9 +124,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name]_[contenthash:8].css'
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: '[name]_[contenthash:8].css'
+    // }),
     new CleanWebpackPlugin(),
     // 使用 htmlwbpackexternalsplugin 分离公共包 
     // new HtmlWebpackExternalsPlugin({
@@ -157,3 +160,12 @@ module.exports = {
     }
   }
 }
+
+// SpeedMeasureWebpackPlugin 与 MiniCssExtractPlugin 不兼容处理
+const configWithTimeMeasures = new SpeedMeasureWebpackPlugin().wrap(config);
+configWithTimeMeasures.plugins.push(new MiniCssExtractPlugin({
+  filename: '[name]_[contenthash:8].css'
+}));
+// SpeedMeasureWebpackPlugin 与 MiniCssExtractPlugin 不兼容处理
+
+module.exports = configWithTimeMeasures
