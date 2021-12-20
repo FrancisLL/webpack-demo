@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import './search.less'
 import logo from './images/logo.jpg'
+import 'babel-polyfill'
 import { common } from '../../common'
 
 class Search extends React.Component {

@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 // const { wrap } = new SpeedMeasureWebpackPlugin()
 
@@ -127,6 +128,7 @@ const config = {
     // new MiniCssExtractPlugin({
     //   filename: '[name]_[contenthash:8].css'
     // }),
+    new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
     // 使用 htmlwbpackexternalsplugin 分离公共包 
     // new HtmlWebpackExternalsPlugin({
