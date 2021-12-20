@@ -128,6 +128,7 @@ const config = {
     // new MiniCssExtractPlugin({
     //   filename: '[name]_[contenthash:8].css'
     // }),
+    // 速度分析插件
     new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
     // 使用 htmlwbpackexternalsplugin 分离公共包 
