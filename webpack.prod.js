@@ -65,7 +65,10 @@ const config = {
       {
         test: /.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: [
+          'thread-loader',
+          'babel-loader'
+        ]
       },
       {
         test: /\.css$/i,
@@ -129,7 +132,7 @@ const config = {
     //   filename: '[name]_[contenthash:8].css'
     // }),
     // 速度分析插件
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
     // 使用 htmlwbpackexternalsplugin 分离公共包 
     // new HtmlWebpackExternalsPlugin({
