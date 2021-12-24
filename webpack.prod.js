@@ -9,10 +9,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const TerserPlugin = require('terser-webpack-plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+
+const PATHS = { src: path.join(__dirname, 'src') }
 
 // const { wrap } = new SpeedMeasureWebpackPlugin()
 
 const autoprefixer = require('autoprefixer');
+const webpack = require('webpack')
 
 const setMPA = () => {
   const entry = {}
@@ -64,8 +70,10 @@ const config = {
     rules: [
       {
         test: /.js$/,
+        include: path.resolve('src'),
         exclude: /node_modules/,
         use: [
+          'cache-loader',
           'thread-loader',
           'babel-loader'
         ]
@@ -149,10 +157,21 @@ const config = {
     //     }
     //   ]
     // })
+    // new webpack.DllReferencePlugin({
+    //   context: path.join(__dirname, 'build/library'),
+    //   manifest: require('./build/library/library.json')
+    // }),
+    // new HardSourceWebpackPlugin()
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true})
+    })
   ].concat(htmlWebpackPlugins),
   optimization: {
     minimizer: [
       new CssMinimizerPlugin(),
+      // new TerserPlugin({
+      // 	parallel: true
+      // })
     ],
     splitChunks: {
       minSize: 0,
@@ -164,6 +183,14 @@ const config = {
         }
       }
     }
+  },
+  resolve: {
+    // alias: {
+    //   'react': path.resolve(__dirname, '/node_modules/umd/react/react.production.min.js'),
+    //   'react-dom': path.resolve(__dirname, '/node_modules/umd/react-dom/react-dom.production.min.js')
+    // },
+    // extensions: ['.js'],
+    // mainFields: ['mian']
   }
 }
 
